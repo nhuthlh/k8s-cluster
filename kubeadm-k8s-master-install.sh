@@ -12,10 +12,10 @@ IP_ADDRESS=$(hostname -I|cut -d" " -f 1)
 sudo echo "${IP_ADDRESS}  k8s-master" | sudo tee -a /etc/hosts
 
 #Enable some kernel modules
-cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
+cat << EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
 br_netfilter
-EOF		
+EOF
 
 sudo modprobe overlay
 sudo modprobe br_netfilter
