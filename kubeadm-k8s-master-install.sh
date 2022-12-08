@@ -8,11 +8,11 @@ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwa
 
 echo "Setting up hostname...."
 sudo hostnamectl set-hostname "k8s-master"
-IP_ADDRESS=`hostname -I|cut -d" " -f 1`
-sudo echo "${IP_ADDRESS}  k8s-master" >> /etc/hosts
+IP_ADDRESS=$(hostname -I|cut -d" " -f 1)
+sudo echo "${IP_ADDRESS}  k8s-master" | sudo tee -a /etc/hosts
 
 #Enable some kernel modules
-cat << EOF | sudo tee /etc/modules-load.d/containerd.conf
+cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
 br_netfilter
 EOF		
