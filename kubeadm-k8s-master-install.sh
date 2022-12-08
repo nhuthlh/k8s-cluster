@@ -61,6 +61,10 @@ sudo apt-mark hold kubelet kubeadm kubectl
 #Initialize cluster from the control node
 sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --kubernetes-version 1.25.0
 
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
 #Setting up networking by installing Calico networking and network policy
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 
