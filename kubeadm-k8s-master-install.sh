@@ -66,7 +66,10 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 #Setting up networking by installing Calico networking and network policy
-kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+sudo kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
+sudo sleep 30
+sudo export KUBECONFIG=$HOME/.kube/config
 
 #Join worker nodes to the cluster
 kubeadm token create --print-join-command
