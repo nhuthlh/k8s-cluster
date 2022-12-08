@@ -76,4 +76,4 @@ kubectl get nodes
 echo "All ok ;)"
 
 #Join worker nodes to the cluster
-kubeadm token create --print-join-command
+#kubeadm token create --print-join-command
