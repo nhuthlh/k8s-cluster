@@ -59,7 +59,7 @@ sudo apt-get install -y kubelet=1.25.0-00 kubeadm=1.25.0-00 kubectl=1.25.0-00
 sudo apt-mark hold kubelet kubeadm kubectl
 
 #Initialize cluster from the control node
-sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --kubernetes-version 1.25.0
+sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --apiserver-advertise-address=$IP_ADDRESS --kubernetes-version 1.25.0
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
