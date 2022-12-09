@@ -82,3 +82,8 @@ kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator
 curl -O https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
 sed -i 's/cidr: 192.168.0.0\/16/cidr: 10.244.0.0\/16/' custom-resources.yaml
 kubectl create -f custom-resources.yaml
+
+# Add auto completion for kubectl
+sudo apt-get install -y bash-completion
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+source ~/.bashrc
